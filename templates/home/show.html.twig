@@ -1,0 +1,50 @@
+{# {% extends 'base.html.twig' %}
+
+
+{% block title %}Show{% endblock %}
+
+{% block body %}
+
+
+<h1>Hello</h1>
+    
+<section class="articles container">
+    <article>
+        <h2>{{article.title}}</h2>
+        <div class="metadata"> Ecrit le {{article.createdAt | date('d/m/Y')}} à {{article.createdAt | date('H:i')}}</div>
+        <div class="content">
+            <img src="{{article.image}}">
+            {{article.content |raw}}
+        </div>
+    </article>
+</section
+
+
+
+{% endblock %} #}
+
+{# Site de référence : https://grafikart.fr/forum/30162 #}
+{% extends 'base.html.twig' %}
+
+{% block title %} Détails Article {% endblock %}
+
+{% block body %}
+<style>
+</style>
+
+<div class="example-wrapper">
+    <h1> Détails Article </h1>
+</div>
+<div class="container">
+    <div class="img-fluid">
+        <img src="{{article.image}}" alt="{{ article.title }}">
+    </div>
+    <div class="content">
+        <p class="date">Ecrit le {{ article.createdAt | date("d/m/y")  }} à {{ article.createdAt | date("H:m") }}</p>
+        <h5 class="title"> {{article.title }}</h5>
+        <p class="content">{{ article.content | raw }}</p>
+    </div>  
+</div>
+{% endblock %}
+
+

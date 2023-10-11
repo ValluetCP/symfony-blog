@@ -10,7 +10,8 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>{{ hello_world }}! ✅</h1>
+    {# <h1>{{ hello_world }}! ✅</h1> #}
+    <h1 class="align-center w-85 m-5 ">{{ hello_world }}!</h1>
 {# 
     This friendly message is coming from:
     <ul>
@@ -26,7 +27,43 @@
 {{ user }}   
 {% endfor %} #}
 
-{% set fruits = ["banane", "cerise", "fraise"]%}
+
+    
+        
+    
+    <div  class="d-flex justify-content-center w-85 flex-wrap m-auto " style="height: 100px; ">
+        {% for article in articles %}
+        <div class="card m-2" style="width: 25rem; height: 750px;">
+            <img src="{{ article.image }}" class="card-img-top" alt="...">
+            <div class="card-body ">
+              <h5 class="card-title">{{ article.title | upper }}</h5>
+              <p class="card-text h-25 overflow-auto">{{ article.content }}</p>
+              <a href="{{path('show', {'id': article.id })}}" class="btn btn-primary">En savoir plus</a>
+              {# <a href="{{ home('home/show.html.twig', { 'article': article.id }) }}" class="btn btn-primary">En savoir plus</a> #}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {# Correction #}
+
+    {# <div class="row">
+        {% for article in articles %}
+        <div class="card col-md-4" style="width: 18rem;">
+            <p class="date">{{ article.createdAt | date("d/m/y")}}</p>
+            <img src="{{article.image}}" class="card-img-top" alt="{{ article.title }}">
+            <div class="card-body">
+              <h5 class="card-title"> {{article.title }}</h5>
+              <a href="#" class="btn btn-primary">En Savoir plus</a>
+            </div>
+          </div>
+        {% endfor %}
+    </div> #}
+    
+
+{# Cours exemple #}
+
+{# {% set fruits = ["banane", "cerise", "fraise"]%}
     {% for fruit in fruits %}
         {{ fruit | upper}}
     {% endfor %}<br>
@@ -36,6 +73,11 @@
     {{"now"| date("d/m/y H:i:s",'Europe/Paris')}}<br>
 
 
+      
+    <a href="{{ path('nom_de_la_route', { 'nom_param1': valeur_param1 }) }}" class="btn btn-primary">{{ article.title }}</a>
+
+
+      {{ dump(articles) }} #}
 
 {% endblock %}
 
