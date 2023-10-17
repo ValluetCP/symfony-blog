@@ -5,29 +5,28 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {% block stylesheets %}
-          <link rel="stylesheet" href="{{ asset('asset/style/bootstrap.min.css')}}">
-          {# asset cible le dossier public #}
+            <link rel="stylesheet" href="{{ asset('assets/styles/bootstrap.min.css') }}">
         {% endblock %}
-      
+
         {% block javascripts %}
         {% endblock %}
     </head>
     <body>
         <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">Navbar</a>
+              <a class="navbar-brand" href="{{path('app_home')}}">Accueil</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto">
                   <li class="nav-item">
-                    <a class="nav-link active" href="http://127.0.0.1:8000/home">Home
+                    <a class="nav-link active" href="{{path('app_home')}}">Home
                       <span class="visually-hidden">(current)</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:8000/admin">Admin</a>
+                    <a class="nav-link" href="{{path('admin')}}">Admin</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Pricing</a>
@@ -53,8 +52,6 @@
               </div>
             </div>
           </nav>
-        {% block body %}
-        
-        {% endblock %}
+        {% block body %}{% endblock %}
     </body>
 </html>
