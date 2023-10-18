@@ -2,33 +2,32 @@
 
 namespace App\Controller;
 
-use App\Entity\Contact;
-use App\Form\ContactType;
+use App\Entity\User;
+use App\Form\UserFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-// source : https://espritweb.fr/comprendre-et-realiser-un-formulaire-symfony-en-10-minutes/
-class ContactController extends AbstractController
+class UserController extends AbstractController
 {
-    #[Route('/contact', name: 'app_contact')]
+    #[Route('/user', name: 'app_user')]
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $contact = new Contact();
-        $form = $this->createForm(ContactType::class,$contact);
+        $user = new User();
+        $form = $this->createForm(UserFormType::class,$user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
-            $entityManager->persist($contact);
+            $entityManager->persist($user);
             $entityManager->flush();
             return $this->redirectToRoute('app_home');
         }
-        // dd($contact);
-        return $this->render('contact/contact.html.twig', [
-            'controller_name' => 'ContactController',
-            'contact' => $form->createView()
+        
+        return $this->render('user/user.html.twig', [
+            'controller_name' => 'Inscrivez-vous',
+            'user' => $form->createView()
         ]);
     }
 }
