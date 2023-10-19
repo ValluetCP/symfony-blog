@@ -9,10 +9,8 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
+    <h1 class="text-center mt-5 mb-4">{{ controller_name }}! ✅</h1>
     {# {{ form(user) }} #}
-
     {{ form_start(user) }}
     <div class="row">
         <div class="col-md-4">
@@ -39,12 +37,12 @@
         </div>
         <div class="col-12">
             {{ form_row(user.password, {'label': "Votre Password : ", 'attr': {
-                'placeholder' : "Votre Password ..."
+                'placeholder' : "Votre Mot de Passe ..."
             }}) }}
         </div>
         <div class="col-12">
             {{ form_row(user.passwordConfirm, {'label': "Confirmez votre Password : ", 'attr': {
-                'placeholder' : "Confirmez votre Password ..."
+                'placeholder' : "Confirmez votre Mot de Passe ..."
             }}) }}
         </div>
     </div>
