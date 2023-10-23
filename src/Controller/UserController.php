@@ -31,7 +31,7 @@ class UserController extends AbstractController
         $user->setPassword($hashedPassword);
             $entityManager->persist($user);
             $entityManager->flush();
-            return $this->redirectToRoute('app_home');
+            return $this->redirectToRoute('app_login');
         }
         
         return $this->render('user/user.html.twig', [
