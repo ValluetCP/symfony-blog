@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccountController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Bonjour {{ app.user.username }}</h1>
+
+</div>
+
+<div class="container d-flex justify-content-between w-90">
+    <div  class="d-flex justify-content-center w-85 flex-wrap " style="height: 100px; ">
+        {% for article in articles %}
+        <div class="card m-2" style="width: 25rem; height: 750px;">
+            <img src="{{ asset('img/article/' ~ article.image) }}" class="card-img-top" alt="...">
+            <div class="card-body ">
+              <h5 class="card-title">{{ article.title | upper }}</h5>
+              <a href="{{path('show', {'id': article.id })}}" class="btn btn-primary">En savoir plus</a>
+              {# <a href="{{ home('home/show.html.twig', { 'article': article.id }) }}" class="btn btn-primary">En savoir plus</a> #} 
+              {# {{ asset('public/img/article') }} #}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+</div> 
+{% endblock %}

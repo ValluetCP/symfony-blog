@@ -25,9 +25,10 @@ class HomeController extends AbstractController
         ]);
     }
     
-    #[Route('/show/{id}', name: 'show')]
     // name = nom qui sera appelé dans la route
     // '/show/{id}' = on met ce que l'on veut car ce n'est pas le chemin du dossier.
+    // #[Security("is_granted('ROLE_USER')")]
+    #[Route('/show/{id}', name: 'show')]
     public function show(ArticleRepository $articleRepository, $id): Response
     {
         $article = $articleRepository->find($id);

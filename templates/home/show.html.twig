@@ -35,15 +35,16 @@
 <div class="example-wrapper container mt-4 mb-3">
     <h1> Détails Article </h1>
 </div>
-<div class="container">
-    <div class="img-fluid">
-        <img src="{{ asset('img/article/' ~ article.image) }}" alt="{{ article.title }}">
+<div class="container"  >
+    <div class="img-fluid" style="width: 250px;">
+        <img src="{{ asset('img/article/' ~ article.image) }}" alt="{{ article.title }}" style="width: 200px;">
     </div>
     <div class="content">
         <p class="date">Ecrit le {{ article.createdAt | date("d/m/y")  }} à {{ article.createdAt | date("H:m") }}</p>
         <h5 class="title"> {{article.title }}</h5>
         <p class="content">{{ article.content | raw }}</p>
-    </div>  
+    </div>
+    <a class="btn btn-outline-warning mx-2" href="{{ path('app_account') }}">Ajouter l'article</a>
 </div>
 {% endblock %}
 
