@@ -24,6 +24,9 @@
            value="{{ csrf_token('authenticate') }}"
     >
 
+    {# source : https://symfony.com/doc/3.3/security/form_login.html#control-the-redirect-using-request-parameters #}
+    {# <input type="hidden" name="_target_path" value="{{ path('account') }}" /> #}
+
     <button class="btn btn-lg btn-primary" type="submit">
         Sign in
     </button>
